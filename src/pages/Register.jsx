@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { registerUser } from "../services/authServices";
 
-
 const Register = () => {
 
     const [formData, setFormData] = useState({

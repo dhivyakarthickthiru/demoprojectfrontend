@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://localhost:3001/api/v1';
+const baseURL = 'http://localhost:3001/api/v1';
 
 const protectedInstance = axios.create({
     baseURL: baseURL,

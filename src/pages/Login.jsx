@@ -2,21 +2,22 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { loginUser } from "../services/authServices";
-
+import { useDispatch } from "react-redux";
+import { setUser } from '../redux/authSlice';
 
 const Login = () => {
-
-      const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
 
-        const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-        const handleLogin = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-         try {
+        try {
             const response = await loginUser(formData);
             dispatch(setUser(response.user));
             toast.success(response.message);
@@ -32,11 +33,10 @@ const Login = () => {
             const errorMessage = error.response?.data?.message || error.message || "Login failed";
             toast.error(errorMessage);
         }
-        }
- 
-  return (
-   
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    }
+
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <div>
                     <Link to="/" className="flex items-center justify-center space-x-2">
@@ -118,7 +118,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
-export default Login
+export default Login;
