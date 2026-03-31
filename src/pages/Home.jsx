@@ -1,8 +1,11 @@
+import NavBar from "../components/NavBar"
 
 
 const Home = () => {
   return (
-    <div>Home</div>
+     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+            <NavBar />
+            </div>
   )
 }
 
